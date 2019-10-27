@@ -65,7 +65,12 @@ function connectRealm(WrappedComponent, options) {
     };
 
     updateView = () => {
-      this.forceUpdate();
+      try {
+        this.forceUpdate();
+      } catch (e) {
+        // Throwing error in a listener will cause a realm crash.
+        // Catch all errors to avoid this.
+      }
     };
 
     render() {
