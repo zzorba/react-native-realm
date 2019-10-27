@@ -23,7 +23,7 @@ function connectRealm(WrappedComponent, options) {
       this.addListeners(context);
     }
 
-    componentWillReceiveProps(nextProps, nextContext) {
+    UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
       // if realm changes
       if (
         this.context.reactRealmInstance.path !==
@@ -34,7 +34,7 @@ function connectRealm(WrappedComponent, options) {
       }
     }
 
-    componentWillUnmount() {
+    UNSAFE_componentWillUnmount() {
       this.removeListeners();
     }
 
